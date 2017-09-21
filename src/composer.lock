@@ -1,0 +1,127 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "b5134282beb41f4302610482de84a9d5",
+    "packages": [
+        {
+            "name": "chriskonnertz/deeply",
+            "version": "v1.3.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/chriskonnertz/DeepLy.git",
+                "reference": "f09de77d510797e493a1b73da1171844df611d3a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/chriskonnertz/DeepLy/zipball/f09de77d510797e493a1b73da1171844df611d3a",
+                "reference": "f09de77d510797e493a1b73da1171844df611d3a",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.6.0"
+            },
+            "require-dev": {
+                "guzzlehttp/guzzle": "^6.2@dev",
+                "phpunit/phpunit": "5.7"
+            },
+            "suggest": {
+                "guzzlehttp/guzzle": "You might want to install Guzzle if you want to use it as the HTTP client for DeepLy"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "ChrisKonnertz\\DeepLy\\Integrations\\Laravel\\DeepLyServiceProvider"
+                    ],
+                    "aliases": {
+                        "DeepLy": "ChrisKonnertz\\DeepLy\\Integrations\\Laravel\\DeepLyFacade"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "ChrisKonnertz\\DeepLy": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Chris Konnertz"
+                }
+            ],
+            "description": "DeepLy is a PHP client for the DeepL.com translation API",
+            "keywords": [
+                "api",
+                "client",
+                "deepl",
+                "deeply",
+                "english",
+                "french",
+                "german",
+                "language",
+                "translate",
+                "translation"
+            ],
+            "time": "2017-09-19T11:45:35+00:00"
+        },
+        {
+            "name": "stevejobzniak/alfred-workflows",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/SteveJobzniak/AlfredWorkflows.git",
+                "reference": "9982b42760ee8a4e1418788f6bf39efbf541d491"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/SteveJobzniak/AlfredWorkflows/zipball/9982b42760ee8a4e1418788f6bf39efbf541d491",
+                "reference": "9982b42760ee8a4e1418788f6bf39efbf541d491",
+                "shasum": ""
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^5.2"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "AlfredApp\\": "./src",
+                    "AlfredAppTest\\": "./tests"
+                }
+            },
+            "authors": [
+                {
+                    "name": "David Ferguson",
+                    "email": "jdfwarrior@gmail.com"
+                },
+                {
+                    "name": "Chris Lock",
+                    "email": "code@catharsis.co.uk"
+                },
+                {
+                    "name": "SteveJobzniak"
+                }
+            ],
+            "description": "Workflow class for AlfredApp",
+            "support": {
+                "source": "https://github.com/SteveJobzniak/AlfredWorkflows/tree/0.5"
+            },
+            "time": "2017-02-19T20:18:15+00:00"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": {
+        "stevejobzniak/alfred-workflows": 20
+    },
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": []
+}

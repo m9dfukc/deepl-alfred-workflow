@@ -1,0 +1,12 @@
+{
+    "require": {
+        "chriskonnertz/deeply": "^1.3",
+        "stevejobzniak/alfred-workflows": "dev-master"
+    },
+    "repositories": {
+        "stevejobzniak-alfred-workflows": {
+            "type": "vcs",
+            "url": "git@github.com:SteveJobzniak/AlfredWorkflows.git"
+        }
+    }
+}
