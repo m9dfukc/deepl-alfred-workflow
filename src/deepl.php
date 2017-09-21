@@ -22,8 +22,8 @@ function output_translation($query, $lang, $tile = "") {
         $proposals  = $deepLy->proposeTranslations($query, DeepLy::LANG_DE, DeepLy::LANG_AUTO);
         foreach($proposals as $proposal) {
             $temp = array(
-                'uid'          => md5($proposal),
-                'arg'          => $query,
+                'uid'          => NULL,
+                'arg'          => $proposal,
                 'title'        => $proposal,
                 'subtitle'     => $title,
                 'icon'         => 'icon.png',
@@ -32,10 +32,10 @@ function output_translation($query, $lang, $tile = "") {
             );
             array_push($results, $temp);
         }
-        if (empty($results)) return $wf->result(empty_result($query));
+        if (empty($results)) return $wf->toXML(empty_result($query));
         else return $wf->toXML($results);
     } catch (\Exception $exception) {
-        return $wf->result(empty_result($query));
+        return $wf->toXML(empty_result($query));
     }
 }
 ?>
