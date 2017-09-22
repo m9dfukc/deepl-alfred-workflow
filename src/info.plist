@@ -8,11 +8,11 @@
 	<string>Tools</string>
 	<key>connections</key>
 	<dict>
-		<key>15926BE1-31FB-4FCE-BBFA-3FE2F4D6A8B7</key>
+		<key>61BF4F8C-DC18-4BB4-8DDD-A87C45C0F79E</key>
 		<array>
 			<dict>
 				<key>destinationuid</key>
-				<string>8A2DB648-D5C8-4D29-9C12-A254DF2B667C</string>
+				<string>D7D47F17-02DB-4A30-8F14-C03CBD051929</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -21,7 +21,7 @@
 				<false/>
 			</dict>
 		</array>
-		<key>8A2DB648-D5C8-4D29-9C12-A254DF2B667C</key>
+		<key>91D16594-908E-4665-A005-0B715D96E5C2</key>
 		<array>
 			<dict>
 				<key>destinationuid</key>
@@ -48,19 +48,23 @@
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>autopaste</key>
+				<key>lastpathcomponent</key>
 				<false/>
-				<key>clipboardtext</key>
-				<string></string>
-				<key>transient</key>
+				<key>onlyshowifquerypopulated</key>
+				<true/>
+				<key>removeextension</key>
 				<false/>
+				<key>text</key>
+				<string>{query}</string>
+				<key>title</key>
+				<string>Copied to clipboard:</string>
 			</dict>
 			<key>type</key>
-			<string>alfred.workflow.output.clipboard</string>
+			<string>alfred.workflow.output.notification</string>
 			<key>uid</key>
-			<string>61BF4F8C-DC18-4BB4-8DDD-A87C45C0F79E</string>
+			<string>D7D47F17-02DB-4A30-8F14-C03CBD051929</string>
 			<key>version</key>
-			<integer>2</integer>
+			<integer>1</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -74,7 +78,7 @@
 				<key>argumenttype</key>
 				<integer>0</integer>
 				<key>escaping</key>
-				<integer>36</integer>
+				<integer>100</integer>
 				<key>keyword</key>
 				<string>de</string>
 				<key>queuedelaycustom</key>
@@ -89,7 +93,13 @@
 				<string>Retrieving suggestions from DeepL ...</string>
 				<key>script</key>
 				<string>require_once( __DIR__ . '/deepl.php' );
-echo output_translation('{query}', 'DE', 'deepl translation');</string>
+
+// DE, EN, FR, ES, IT, NL, PL are available
+// or use &gt; {LANG_CODE} to force the translation language
+
+$default_language = 'DE'; 
+echo output_translation('{query}', $default_language, 'deepl translation');
+</string>
 				<key>scriptargtype</key>
 				<integer>0</integer>
 				<key>scriptfile</key>
@@ -106,32 +116,24 @@ echo output_translation('{query}', 'DE', 'deepl translation');</string>
 			<key>type</key>
 			<string>alfred.workflow.input.scriptfilter</string>
 			<key>uid</key>
-			<string>15926BE1-31FB-4FCE-BBFA-3FE2F4D6A8B7</string>
+			<string>91D16594-908E-4665-A005-0B715D96E5C2</string>
 			<key>version</key>
 			<integer>2</integer>
 		</dict>
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>concurrently</key>
+				<key>autopaste</key>
 				<false/>
-				<key>escaping</key>
-				<integer>36</integer>
-				<key>script</key>
-				<string>$in = "{query}";
-preg_match("/\{([^}]*)\s*\}\{([^}]*)\s*\}\{([^}]*)\s*\}/", $in, $matches);
-echo $matches[3];</string>
-				<key>scriptargtype</key>
-				<integer>0</integer>
-				<key>scriptfile</key>
+				<key>clipboardtext</key>
 				<string></string>
-				<key>type</key>
-				<integer>1</integer>
+				<key>transient</key>
+				<false/>
 			</dict>
 			<key>type</key>
-			<string>alfred.workflow.action.script</string>
+			<string>alfred.workflow.output.clipboard</string>
 			<key>uid</key>
-			<string>8A2DB648-D5C8-4D29-9C12-A254DF2B667C</string>
+			<string>61BF4F8C-DC18-4BB4-8DDD-A87C45C0F79E</string>
 			<key>version</key>
 			<integer>2</integer>
 		</dict>
@@ -140,29 +142,29 @@ echo $matches[3];</string>
 	<string></string>
 	<key>uidata</key>
 	<dict>
-		<key>15926BE1-31FB-4FCE-BBFA-3FE2F4D6A8B7</key>
-		<dict>
-			<key>xpos</key>
-			<integer>70</integer>
-			<key>ypos</key>
-			<integer>50</integer>
-		</dict>
 		<key>61BF4F8C-DC18-4BB4-8DDD-A87C45C0F79E</key>
 		<dict>
 			<key>xpos</key>
-			<integer>490</integer>
+			<integer>230</integer>
 			<key>ypos</key>
 			<integer>50</integer>
 		</dict>
-		<key>8A2DB648-D5C8-4D29-9C12-A254DF2B667C</key>
+		<key>91D16594-908E-4665-A005-0B715D96E5C2</key>
 		<dict>
 			<key>xpos</key>
-			<integer>290</integer>
+			<integer>50</integer>
+			<key>ypos</key>
+			<integer>50</integer>
+		</dict>
+		<key>D7D47F17-02DB-4A30-8F14-C03CBD051929</key>
+		<dict>
+			<key>xpos</key>
+			<integer>400</integer>
 			<key>ypos</key>
 			<integer>50</integer>
 		</dict>
 	</dict>
 	<key>webaddress</key>
-	<string></string>
+	<string>https://github.com/m9dfukc/deepl-alfred-workflow</string>
 </dict>
 </plist>

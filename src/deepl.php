@@ -15,11 +15,20 @@ function empty_result($query) {
 }
 
 function output_translation($query, $lang, $tile = "") {
-    $wf 		 = new Workflows('de.m9dfukc.deepltranslate');
-    $deepLy	 = new DeepLy();
+    $wf 		  = new Workflows('de.m9dfukc.deepltranslate');
+    $deepLy	  = new DeepLy();
+    $lang     = strtoupper($lang);
+    $lang     = strpos($query, '>') ?
+                    strtoupper(trim(substr($query, strpos($query, '>') + 1))) :
+                    $lang;
+    $lang     = $deepLy->supportsLangCode($lang) ? $lang : 'EN';
+    $query    = strpos($query, '>') ?
+                    trim(substr($query, 0, strpos($query, '>'))) :
+                    $query;
+
     try {
         $results    = array();
-        $proposals  = $deepLy->proposeTranslations($query, DeepLy::LANG_DE, DeepLy::LANG_AUTO);
+        $proposals  = $deepLy->proposeTranslations($query, $lang);
         foreach($proposals as $proposal) {
             $temp = array(
                 'uid'          => NULL,
