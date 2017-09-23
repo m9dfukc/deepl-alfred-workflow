@@ -1,4 +1,4 @@
-# Alfred 2 DeepL Translation Workflow
+# Alfred DeepL Translation Workflow
 
 [DeepL.com](https://www.deepl.com/) is a great, new translation service.
 It provides better translations compared to other popular translation engines.
