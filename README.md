@@ -14,8 +14,14 @@ Once imported, take a quick look at the workflow settings and setup what keyword
 
 ## Usage
 
-To activate this workflow use the default keyword _"dl"_, enter the passage you wanna get translated. Source language will be inferred automatically, the preferred destination language can be set in the workflow. You can also enforce the destination language by using the _">"_ symbol – f.e. `dl {passage} > fr`. Following source and destination language codes are available `DE, EN, FR, ES, IT, NL, PL`.
+To activate this workflow use the default keyword _"dl"_, enter the passage you wanna get translated. Source language will be inferred automatically, the preferred destination language can be set in the workflow. You can also enforce the destination language by using the `>` symbol – f.e. `dl {passage} > fr`.
 
+Source and destination language codes are available
+```
+de, en, fr, es, it, nl, pl
+```
+
+**Pro tip:** Use _enter_ to copy translated text to your clipboard.
 
 ## Source code
 
