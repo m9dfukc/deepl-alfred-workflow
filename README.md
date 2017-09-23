@@ -2,7 +2,7 @@
 
 [DeepL.com](https://www.deepl.com/) is a great, new translation service.
 It provides better translations compared to other popular translation engines.
-This workflow integrates the [chriskonnertz/DeepLy](https://github.com/chriskonnertz/DeepLy) PHP package into Alfred. The package currently implements the client to interact with DeepL via their _undocumented_ API.
+This workflow integrates the [chriskonnertz/DeepLy](https://github.com/chriskonnertz/DeepLy) PHP package into Alfred.
 
 
 ## Importing a Workflow
@@ -14,7 +14,7 @@ Once imported, take a quick look at the workflow settings and setup what keyword
 
 ## Usage
 
-To activate this workflow use the default keyword _"dl"_, enter the passage you wanna get translated. Source language will be inferred automatically, the preferred destination language can be set in the workflow. You can also enforce the destination language by using the `>` symbol – f.e. `dl {passage} > fr`.
+To activate this workflow use the default keyword _"dl"_, enter the passage you wanna get translated. Source language will be inferred automatically, the preferred destination language can be set in the workflow. You can also enforce the destination language by using the `>` symbol – f.e. `dl today will be nice weather > fr`.
 
 Source and destination language codes are available
 ```
@@ -22,6 +22,17 @@ de, en, fr, es, it, nl, pl
 ```
 
 **Pro tip:** Use _enter_ to copy translated text to your clipboard.
+
+
+## Disclaimer
+
+This workflow currently interacts with DeepL's _undocumented_ and _unofficial_ API.
+The API of DeepL.com is free but this might change in the future.
+
+DeepL is a product from DeepL GmbH. More info: [deepl.com/publisher.html](https://www.deepl.com/publisher.html)
+
+This package has been heavily inspired by Chris Konnertz [DeepLy PHP package](https://github.com/chriskonnertz/DeepLy).
+
 
 ## Source code
 
@@ -37,7 +48,8 @@ cd src;
 composer install;
 ```
 
+
 #### Utilized PHP libraries
 
-> [chriskonnertz/DeepLy](https://github.com/chriskonnertz/DeepLy)
-> [SteveJobzniak/AlfredWorkflows](https://github.com/SteveJobzniak/AlfredWorkflows)
+* [chriskonnertz/DeepLy](https://github.com/chriskonnertz/DeepLy)
+* [SteveJobzniak/AlfredWorkflows](https://github.com/SteveJobzniak/AlfredWorkflows)
