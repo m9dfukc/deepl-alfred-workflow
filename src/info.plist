@@ -98,7 +98,7 @@
 // or use &gt; {LANG_CODE} to force the translation language
 
 $default_language = 'DE'; 
-echo output_translation('{query}', $default_language, 'deepl translation');
+echo output_translation("{query}", $default_language, 'deepl translation');
 </string>
 				<key>scriptargtype</key>
 				<integer>0</integer>
