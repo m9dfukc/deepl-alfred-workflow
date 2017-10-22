@@ -1,6 +1,6 @@
 {
     "require": {
-        "chriskonnertz/deeply": "^1.3",
+        "chriskonnertz/deeply": "^1.4.3",
         "stevejobzniak/alfred-workflows": "dev-master"
     },
     "repositories": {
