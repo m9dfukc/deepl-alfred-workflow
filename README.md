@@ -24,6 +24,11 @@ de, en, fr, es, it, nl, pl
 **Pro tip:** Use _enter_ to copy translated text to your clipboard.
 
 
+## Requirements
+
+This workflow requires PHP >= 5.6 with the cURL extension as your default php environment `/usr/bin/php`. Therefore macOS 10.12 is recommended as minimum if you don't [jump through hoops](https://github.com/m9dfukc/deepl-alfred-workflow/issues/2).  
+
+
 ## Disclaimer
 
 This workflow currently interacts with DeepL's _undocumented_ and _unofficial_ API.
