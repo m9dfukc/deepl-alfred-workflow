@@ -26,7 +26,7 @@ de, en, fr, es, it, nl, pl
 
 ## Requirements
 
-This workflow requires PHP >= 5.6 with the cURL extension as your default php environment `/usr/bin/php`. Therefore macOS 10.12 is recommended as minimum if you don't [jump through hoops](https://github.com/m9dfukc/deepl-alfred-workflow/issues/2).  
+This workflow requires PHP >= 5.6 with the cURL extension as your default php environment `/usr/bin/php`. Therefore macOS 10.12 is recommended as minimum if you don't want to [jump through hoops](https://github.com/m9dfukc/deepl-alfred-workflow/issues/2).  
 
 
 ## Disclaimer
