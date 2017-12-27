@@ -14,7 +14,7 @@ function empty_result($query) {
     );
 }
 
-function output_translation($query, $lang, $tile = "") {
+function output_translation($query, $lang, $title = "") {
     $wf 		  = new Workflows('de.m9dfukc.deepltranslate');
     $deepLy	  = new DeepLy();
     $lang     = strtoupper($lang);
