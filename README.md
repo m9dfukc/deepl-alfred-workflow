@@ -21,7 +21,7 @@ Source and destination language codes available
 de, en, fr, es, it, nl, pl
 ```
 
-**Pro tip:** Use _enter_ to copy translated text to your clipboard.
+**Pro tip:** Use _⏎_&nbsp; to copy translated text to your clipboard. Use _⌘_ + _⏎_&nbsp; to show long sentences as screen overlay and _⎋_&nbsp; to go back. Send any system wide text selection via the hotkey combo _^⌥⌘D_&nbsp; to DeeplTranslate.
 
 
 ## Requirements
