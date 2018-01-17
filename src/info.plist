@@ -48,23 +48,19 @@
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>lastpathcomponent</key>
+				<key>autopaste</key>
 				<false/>
-				<key>onlyshowifquerypopulated</key>
-				<true/>
-				<key>removeextension</key>
+				<key>clipboardtext</key>
+				<string></string>
+				<key>transient</key>
 				<false/>
-				<key>text</key>
-				<string>{query}</string>
-				<key>title</key>
-				<string>Copied to clipboard:</string>
 			</dict>
 			<key>type</key>
-			<string>alfred.workflow.output.notification</string>
+			<string>alfred.workflow.output.clipboard</string>
 			<key>uid</key>
-			<string>D7D47F17-02DB-4A30-8F14-C03CBD051929</string>
+			<string>61BF4F8C-DC18-4BB4-8DDD-A87C45C0F79E</string>
 			<key>version</key>
-			<integer>1</integer>
+			<integer>2</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -97,9 +93,10 @@
 // DE, EN, FR, ES, IT, NL, PL are available
 // or use &gt; {LANG_CODE} to force the translation language
 
-$default_language = 'DE'; 
-echo output_translation("{query}", $default_language, 'deepl translation');
-</string>
+$default_language = 'DE';
+$deepl = new DeeplTranslate($default_language);
+
+echo $deepl-&gt;translate("{query}");</string>
 				<key>scriptargtype</key>
 				<integer>0</integer>
 				<key>scriptfile</key>
@@ -123,19 +120,23 @@ echo output_translation("{query}", $default_language, 'deepl translation');
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>autopaste</key>
+				<key>lastpathcomponent</key>
 				<false/>
-				<key>clipboardtext</key>
-				<string></string>
-				<key>transient</key>
+				<key>onlyshowifquerypopulated</key>
+				<true/>
+				<key>removeextension</key>
 				<false/>
+				<key>text</key>
+				<string>{query}</string>
+				<key>title</key>
+				<string>Copied to clipboard:</string>
 			</dict>
 			<key>type</key>
-			<string>alfred.workflow.output.clipboard</string>
+			<string>alfred.workflow.output.notification</string>
 			<key>uid</key>
-			<string>61BF4F8C-DC18-4BB4-8DDD-A87C45C0F79E</string>
+			<string>D7D47F17-02DB-4A30-8F14-C03CBD051929</string>
 			<key>version</key>
-			<integer>2</integer>
+			<integer>1</integer>
 		</dict>
 	</array>
 	<key>readme</key>
