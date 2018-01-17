@@ -33,13 +33,24 @@ class DeeplTranslate
     }
 
     private function empty_result($query) {
-        return array (
-            'uid'     => NULL,
-            'arg'     => $query,
-            'title'   => 'DeepL no translation found',
-            'icon'    => $this->langIcons['default'],
-            'valid'   => 'no',
-        );
+        return array (array (
+            'uid'      => NULL,
+            'arg'      => $query,
+            'title'    => 'DeepL no translation found',
+            'subtitle' => $query,
+            'icon'     => $this->langIcons['default'],
+            'valid'    => 'no',
+        ));
+    }
+
+    private function strip_target_from_query($query) {
+        return strpos($query, '>')
+            ? trim(substr($query, 0, strpos($query, '>')))
+            : $query;
+    }
+
+    private function one_sentence_from_query($query) {
+        return str_replace(array('.', '!', '?'), ' ', $query);
     }
 
     public function translate($query) {
@@ -50,12 +61,17 @@ class DeeplTranslate
         $lang  = $this->deepLy->supportsLangCode($lang)
             ? $lang
             : DeepLy::LANG_EN;
-        $query = strpos($query, '>')
-            ? trim(substr($query, 0, strpos($query, '>')))
-            : $query;
+        $query = $this->strip_target_from_query($query);
         try {
-            $results    = array();
-            $proposals  = $this->deepLy->proposeTranslations($query, $lang);
+            $proposals = array();
+            $results   = array();
+            try {
+                $sentences = $this->one_sentence_from_query($query);
+                $proposals = $this->deepLy->proposeTranslations($sentences, $lang);
+            } catch (\Exception $exception) {
+                $sentences = $this->deepLy->splitText($query);
+                $proposals[0] = implode($this->deepLy->translateSentences($sentences, $lang), ' ');
+            }
             $targetLang = $this->deepLy->getTranslationBag()->getTargetLanguage();
             foreach($proposals as $proposal) {
                 $temp = array(
@@ -69,8 +85,11 @@ class DeeplTranslate
                 );
                 array_push($results, $temp);
             }
-            if (empty($results)) return $this->wf->toXML($thi->empty_result($query));
-            else return $this->wf->toXML($results);
+            if (empty($results)) {
+                return $this->wf->toXML($this->empty_result($query));
+            } else {
+                return $this->wf->toXML($results);
+            }
         } catch (\Exception $exception) {
             return $this->wf->toXML($this->empty_result($query));
         }

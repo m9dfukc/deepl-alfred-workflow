@@ -21,6 +21,19 @@
 				<false/>
 			</dict>
 		</array>
+		<key>84FE56AF-330C-4BB8-85E6-34859AAB73A7</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>91D16594-908E-4665-A005-0B715D96E5C2</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
 		<key>91D16594-908E-4665-A005-0B715D96E5C2</key>
 		<array>
 			<dict>
@@ -33,12 +46,22 @@
 				<key>vitoclose</key>
 				<false/>
 			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>A222FB0A-D703-4C45-9CB0-4EDEA3399BEF</string>
+				<key>modifiers</key>
+				<integer>1048576</integer>
+				<key>modifiersubtext</key>
+				<string>Shows translation as screen overlay!</string>
+				<key>vitoclose</key>
+				<true/>
+			</dict>
 		</array>
 	</dict>
 	<key>createdby</key>
 	<string>Andreas Schmelas</string>
 	<key>description</key>
-	<string>translate text</string>
+	<string>Translation using deepl.com Api – Version 1.1.0</string>
 	<key>disabled</key>
 	<false/>
 	<key>name</key>
@@ -48,17 +71,31 @@
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>autopaste</key>
+				<key>action</key>
+				<integer>0</integer>
+				<key>argument</key>
+				<integer>1</integer>
+				<key>focusedappvariable</key>
 				<false/>
-				<key>clipboardtext</key>
+				<key>focusedappvariablename</key>
 				<string></string>
-				<key>transient</key>
+				<key>hotkey</key>
+				<integer>2</integer>
+				<key>hotmod</key>
+				<integer>1835008</integer>
+				<key>hotstring</key>
+				<string>D</string>
+				<key>leftcursor</key>
 				<false/>
+				<key>modsmode</key>
+				<integer>0</integer>
+				<key>relatedAppsMode</key>
+				<integer>0</integer>
 			</dict>
 			<key>type</key>
-			<string>alfred.workflow.output.clipboard</string>
+			<string>alfred.workflow.trigger.hotkey</string>
 			<key>uid</key>
-			<string>61BF4F8C-DC18-4BB4-8DDD-A87C45C0F79E</string>
+			<string>84FE56AF-330C-4BB8-85E6-34859AAB73A7</string>
 			<key>version</key>
 			<integer>2</integer>
 		</dict>
@@ -120,6 +157,23 @@ echo $deepl-&gt;translate("{query}");</string>
 		<dict>
 			<key>config</key>
 			<dict>
+				<key>autopaste</key>
+				<false/>
+				<key>clipboardtext</key>
+				<string></string>
+				<key>transient</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.clipboard</string>
+			<key>uid</key>
+			<string>61BF4F8C-DC18-4BB4-8DDD-A87C45C0F79E</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
 				<key>lastpathcomponent</key>
 				<false/>
 				<key>onlyshowifquerypopulated</key>
@@ -138,6 +192,19 @@ echo $deepl-&gt;translate("{query}");</string>
 			<key>version</key>
 			<integer>1</integer>
 		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>largetypetext</key>
+				<string>{query}</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.largetype</string>
+			<key>uid</key>
+			<string>A222FB0A-D703-4C45-9CB0-4EDEA3399BEF</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
 	</array>
 	<key>readme</key>
 	<string></string>
@@ -146,23 +213,37 @@ echo $deepl-&gt;translate("{query}");</string>
 		<key>61BF4F8C-DC18-4BB4-8DDD-A87C45C0F79E</key>
 		<dict>
 			<key>xpos</key>
-			<integer>230</integer>
+			<integer>390</integer>
 			<key>ypos</key>
-			<integer>50</integer>
+			<integer>60</integer>
+		</dict>
+		<key>84FE56AF-330C-4BB8-85E6-34859AAB73A7</key>
+		<dict>
+			<key>xpos</key>
+			<integer>40</integer>
+			<key>ypos</key>
+			<integer>60</integer>
 		</dict>
 		<key>91D16594-908E-4665-A005-0B715D96E5C2</key>
 		<dict>
 			<key>xpos</key>
-			<integer>50</integer>
+			<integer>210</integer>
 			<key>ypos</key>
-			<integer>50</integer>
+			<integer>60</integer>
+		</dict>
+		<key>A222FB0A-D703-4C45-9CB0-4EDEA3399BEF</key>
+		<dict>
+			<key>xpos</key>
+			<integer>390</integer>
+			<key>ypos</key>
+			<integer>170</integer>
 		</dict>
 		<key>D7D47F17-02DB-4A30-8F14-C03CBD051929</key>
 		<dict>
 			<key>xpos</key>
-			<integer>400</integer>
+			<integer>560</integer>
 			<key>ypos</key>
-			<integer>50</integer>
+			<integer>60</integer>
 		</dict>
 	</dict>
 	<key>webaddress</key>
