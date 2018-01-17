@@ -37,7 +37,7 @@ function output_translation($query, $lang, $title = "") {
                 'subtitle'     => $query,
                 'icon'         => 'icon.png',
                 'valid'        => 'yes',
-                'autocomplete' => NULL,
+                'autocomplete' => 'autocomplete',
             );
             array_push($results, $temp);
         }
