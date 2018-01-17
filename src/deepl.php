@@ -34,9 +34,10 @@ function output_translation($query, $lang, $title = "") {
                 'uid'          => NULL,
                 'arg'          => $proposal,
                 'title'        => $proposal,
+                'subtitle'     => $query,
                 'icon'         => 'icon.png',
                 'valid'        => 'yes',
-                'autocomplete' => 'autocomplete',
+                'autocomplete' => NULL,
             );
             array_push($results, $temp);
         }
