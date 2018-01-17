@@ -61,7 +61,7 @@
 	<key>createdby</key>
 	<string>Andreas Schmelas</string>
 	<key>description</key>
-	<string>Translation using deepl.com Api – Version 1.1.0</string>
+	<string>Translation using deepl.com Api – Version 1.2.0</string>
 	<key>disabled</key>
 	<false/>
 	<key>name</key>
@@ -227,7 +227,7 @@ echo $deepl-&gt;translate("{query}");</string>
 		<key>91D16594-908E-4665-A005-0B715D96E5C2</key>
 		<dict>
 			<key>xpos</key>
-			<integer>210</integer>
+			<integer>200</integer>
 			<key>ypos</key>
 			<integer>60</integer>
 		</dict>

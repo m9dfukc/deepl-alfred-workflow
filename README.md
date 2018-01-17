@@ -14,7 +14,7 @@ Once imported, take a quick look at the workflow settings and setup what keyword
 
 ## Usage
 
-To activate this workflow use the default keyword _"dl"_, enter the passage you wanna get translated. Source language will be inferred automatically, the preferred destination language can be set in the workflow. You can also enforce the destination language by using the `>` symbol – f.e. `dl today will be nice weather > fr`.
+To activate this workflow use the default keyword _"dl"_, enter the passage you wanna get translated. Source language will be inferred automatically, the preferred destination language can be set in the workflow. You can also enforce the target language by using the `>` symbol – for example `dl today will be nice weather > fr` or for more than one target language `dl will it rain today? > fr nl`.
 
 Source and destination language codes available
 ```
