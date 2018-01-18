@@ -113,7 +113,7 @@ class DeeplTranslate
                     'uid'          => NULL,
                     'arg'          => $proposal['translation'],
                     'title'        => $proposal['translation'],
-                    'subtitle'     => $query,
+                    'subtitle'     => $process,
                     'icon'         => $this->get_lang_icon($proposal['lang']),
                     'valid'        => 'yes',
                     'autocomplete' => 'autocomplete',

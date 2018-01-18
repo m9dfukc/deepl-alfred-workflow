@@ -61,7 +61,7 @@
 	<key>createdby</key>
 	<string>Andreas Schmelas</string>
 	<key>description</key>
-	<string>Translation using deepl.com Api – Version 1.2.0</string>
+	<string>Translation using deepl.com Api – Version 1.2.1</string>
 	<key>disabled</key>
 	<false/>
 	<key>name</key>
@@ -96,6 +96,23 @@
 			<string>alfred.workflow.trigger.hotkey</string>
 			<key>uid</key>
 			<string>84FE56AF-330C-4BB8-85E6-34859AAB73A7</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>autopaste</key>
+				<false/>
+				<key>clipboardtext</key>
+				<string></string>
+				<key>transient</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.clipboard</string>
+			<key>uid</key>
+			<string>61BF4F8C-DC18-4BB4-8DDD-A87C45C0F79E</string>
 			<key>version</key>
 			<integer>2</integer>
 		</dict>
@@ -151,23 +168,6 @@ echo $deepl-&gt;translate("{query}");</string>
 			<string>alfred.workflow.input.scriptfilter</string>
 			<key>uid</key>
 			<string>91D16594-908E-4665-A005-0B715D96E5C2</string>
-			<key>version</key>
-			<integer>2</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>autopaste</key>
-				<false/>
-				<key>clipboardtext</key>
-				<string></string>
-				<key>transient</key>
-				<false/>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.output.clipboard</string>
-			<key>uid</key>
-			<string>61BF4F8C-DC18-4BB4-8DDD-A87C45C0F79E</string>
 			<key>version</key>
 			<integer>2</integer>
 		</dict>
