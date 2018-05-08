@@ -6,7 +6,7 @@
     "repositories": {
         "stevejobzniak-alfred-workflows": {
             "type": "vcs",
-            "url": "git@github.com:SteveJobzniak/AlfredWorkflows.git"
+            "url": "git@github.com:m9dfukc/alfred-workflows.git"
         }
     }
 }

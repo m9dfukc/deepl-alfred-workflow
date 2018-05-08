@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "3eb86f71ec1aca19e8cc7d90937d31a0",
+    "content-hash": "c40e7e8967d3d6874ef3a23668a9d207",
     "packages": [
         {
             "name": "chriskonnertz/deeply",
-            "version": "v1.5.1",
+            "version": "v1.5.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/chriskonnertz/DeepLy.git",
-                "reference": "469ffd331095a70c7bb11a1955a1a690f0b118f1"
+                "reference": "ed1f5caa443c5ddf97f9e8f95c6c7ffad3997f9d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/chriskonnertz/DeepLy/zipball/469ffd331095a70c7bb11a1955a1a690f0b118f1",
-                "reference": "469ffd331095a70c7bb11a1955a1a690f0b118f1",
+                "url": "https://api.github.com/repos/chriskonnertz/DeepLy/zipball/ed1f5caa443c5ddf97f9e8f95c6c7ffad3997f9d",
+                "reference": "ed1f5caa443c5ddf97f9e8f95c6c7ffad3997f9d",
                 "shasum": ""
             },
             "require": {
@@ -68,20 +68,20 @@
                 "translate",
                 "translation"
             ],
-            "time": "2017-12-06T18:26:37+00:00"
+            "time": "2018-03-30T11:45:46+00:00"
         },
         {
             "name": "stevejobzniak/alfred-workflows",
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "https://github.com/SteveJobzniak/AlfredWorkflows.git",
-                "reference": "9982b42760ee8a4e1418788f6bf39efbf541d491"
+                "url": "https://github.com/m9dfukc/alfred-workflows.git",
+                "reference": "359e1fdf6fe62e7e868c757925da7f120b4623b9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/SteveJobzniak/AlfredWorkflows/zipball/9982b42760ee8a4e1418788f6bf39efbf541d491",
-                "reference": "9982b42760ee8a4e1418788f6bf39efbf541d491",
+                "url": "https://api.github.com/repos/m9dfukc/alfred-workflows/zipball/359e1fdf6fe62e7e868c757925da7f120b4623b9",
+                "reference": "359e1fdf6fe62e7e868c757925da7f120b4623b9",
                 "shasum": ""
             },
             "require-dev": {
@@ -109,9 +109,10 @@
             ],
             "description": "Workflow class for AlfredApp",
             "support": {
-                "source": "https://github.com/SteveJobzniak/AlfredWorkflows/tree/0.5"
+                "source": "https://github.com/m9dfukc/alfred-workflows/tree/master",
+                "issues": "https://github.com/m9dfukc/alfred-workflows/issues"
             },
-            "time": "2017-02-19T20:18:15+00:00"
+            "time": "2018-05-08T15:29:13+00:00"
         }
     ],
     "packages-dev": [],
