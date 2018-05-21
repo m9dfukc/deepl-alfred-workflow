@@ -79,6 +79,7 @@ class DeeplTranslate
     public function translate($query) {
         $proposals = array();
         $results   = array();
+        $query     = iconv("UTF-8-MAC", "UTF-8", $query);
         $targets   = $this->get_targets($query);
         $process   = $this->clean_query($query);
         $maxItems  = count($targets) > 1 ? 3 : 4;
