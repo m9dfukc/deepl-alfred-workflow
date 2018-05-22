@@ -57,4 +57,4 @@ composer install;
 #### Utilized PHP libraries
 
 * [chriskonnertz/DeepLy](https://github.com/chriskonnertz/DeepLy)
-* [SteveJobzniak/AlfredWorkflows](https://github.com/SteveJobzniak/AlfredWorkflows)
+* [SteveJobzniak/AlfredWorkflows](https://github.com/m9dfukc/alfred-workflows)
