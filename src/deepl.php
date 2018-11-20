@@ -26,6 +26,20 @@ class DeeplTranslate
         $this->baseTarget = $this->get_supported($lang);
     }
 
+    private function unique_multidim_array($array, $key) {
+        $temp_array = array();
+        $key_array  = array();
+        $i          = 0;
+        foreach($array as $val) {
+            if (!in_array($val[$key], $key_array)) {
+                $key_array[$i] = $val[$key];
+                $temp_array[$i] = $val;
+            }
+            $i++;
+        }
+        return $temp_array;
+    }
+
     private function get_lang_icon($lang) {
         return isset($this->langIcons[$lang])
             ? $this->langIcons[$lang]
@@ -108,8 +122,7 @@ class DeeplTranslate
                     }
                 }
             }
-            $targetLang = $this->deepLy->getTranslationBag()->getTargetLanguage();
-            foreach($proposals as $proposal) {
+            foreach($this->unique_multidim_array($proposals, 'translation') as $proposal) {
                 $temp = array(
                     'uid'          => NULL,
                     'arg'          => $proposal['translation'],
