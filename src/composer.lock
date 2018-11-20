@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "c40e7e8967d3d6874ef3a23668a9d207",
+    "content-hash": "e9ff2d786426289e749399e8f9bc83cb",
     "packages": [
         {
             "name": "chriskonnertz/deeply",
-            "version": "v1.5.2",
+            "version": "v1.6.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/chriskonnertz/DeepLy.git",
-                "reference": "ed1f5caa443c5ddf97f9e8f95c6c7ffad3997f9d"
+                "reference": "3d4ce3e750e4b08600c47c6e399a671043129ac9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/chriskonnertz/DeepLy/zipball/ed1f5caa443c5ddf97f9e8f95c6c7ffad3997f9d",
-                "reference": "ed1f5caa443c5ddf97f9e8f95c6c7ffad3997f9d",
+                "url": "https://api.github.com/repos/chriskonnertz/DeepLy/zipball/3d4ce3e750e4b08600c47c6e399a671043129ac9",
+                "reference": "3d4ce3e750e4b08600c47c6e399a671043129ac9",
                 "shasum": ""
             },
             "require": {
@@ -68,7 +68,7 @@
                 "translate",
                 "translation"
             ],
-            "time": "2018-03-30T11:45:46+00:00"
+            "time": "2018-09-29T18:21:57+00:00"
         },
         {
             "name": "stevejobzniak/alfred-workflows",

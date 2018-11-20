@@ -5,9 +5,6 @@ It provides better translations compared to other popular translation engines.
 This workflow integrates the [chriskonnertz/DeepLy](https://github.com/chriskonnertz/DeepLy) PHP package into Alfred.
 
 
-> **IMPORTANT STATEMENT**: This workflow is currently not working as Deepl.com has changed its API, [see issue#14](https://github.com/m9dfukc/deepl-alfred-workflow/issues/14)! There is a new version of [DeepLy](https://github.com/chriskonnertz/DeepLy) on the horizon which will allow using this workflow with [DeepL Pro](https://www.deepl.com/en/pro.html) - I might update this workflow when the time comes.
-
-
 ## Importing a Workflow
 
 Simply install the DeepL workflow by double-clicking the workflow file. You can add the workflow to a category, then click "Import" to finish importing. You'll now see the workflow listed in the left sidebar of your Workflows preferences pane.
