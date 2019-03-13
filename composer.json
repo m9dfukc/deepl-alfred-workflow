@@ -1,3 +1,4 @@
 {
-    "name":"alfred-workflows"
+    "name":"alfred-workflows",
+    "minimum-stability": "dev"
 }
