@@ -1,12 +1,15 @@
 {
+    "name":"m9dfukc/alfred-workflows",
+    "minimum-stability": "dev",
+    "version": "2.0.0",
     "require": {
-        "chriskonnertz/deeply": "^1.6.0",
-        "stevejobzniak/alfred-workflows": "dev-master"
+        "php": ">=7.2.0",
+        "octfx/deeply": "dev-master"
     },
     "repositories": {
-        "stevejobzniak-alfred-workflows": {
+        "octfx-deeply": {
             "type": "vcs",
-            "url": "git@github.com:m9dfukc/alfred-workflows.git"
+            "url": "https://github.com/m9dfukc/DeepLy.git"
         }
     }
 }

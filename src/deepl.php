@@ -1,13 +1,11 @@
 <?php
 require_once( './vendor/autoload.php' );
-use AlfredApp\Workflows;
-use ChrisKonnertz\DeepLy\DeepLy;
+use Octfx\DeepLy\DeepLy;
 
 class DeeplTranslate
 {
     private $deepLy;
-    private $wf;
-    private $baseLang;
+    private $baseTargets;
 
     private $langIcons = array (
         'default'       => 'icon.png',
@@ -20,10 +18,9 @@ class DeeplTranslate
         DeepLy::LANG_PL => 'icons/pl.png',
     );
 
-    function __construct($lang) {
-        $this->wf 	      = new Workflows('de.m9dfukc.deepltranslate');
-        $this->deepLy     = new DeepLy();
-        $this->baseTarget = $this->get_supported($lang);
+    function __construct($key, $defaultTargets) {
+        $this->deepLy     = new DeepLy($key);
+        $this->baseTargets = explode(' ', $defaultTargets);
     }
 
     private function unique_multidim_array($array, $key) {
@@ -47,7 +44,7 @@ class DeeplTranslate
     }
 
     private function empty_result($query) {
-        return array (array (
+        $output['items'] = array(array (
             'uid'      => NULL,
             'arg'      => $query,
             'title'    => 'DeepL no translation found',
@@ -55,13 +52,7 @@ class DeeplTranslate
             'icon'     => $this->langIcons['default'],
             'valid'    => 'no',
         ));
-    }
-
-    private function get_supported($lang) {
-        $lang = strtoupper($lang);
-        return $this->deepLy->supportsLangCode($lang)
-            ? $lang
-            : DeepLy::LANG_EN;
+        return $output;
     }
 
     private function get_targets($query) {
@@ -70,13 +61,21 @@ class DeeplTranslate
             $query    = strtoupper(str_replace(array(',', ' , ', ' ,', ', ', '  '), ' ', $query));
             $exploded = explode(' ', $query);
             $targets  = array_filter($exploded, function($lang, $key) {
-                return in_array($lang, DeepLy::LANG_CODES);
+                return in_array($lang, DeepLy::TARGET_LANG_CODES);
             }, ARRAY_FILTER_USE_BOTH);
             return count($targets) > 0
                 ? $targets
-                : array($this->baseTarget);
+                : $this->baseTargets;
         } else {
-            return array ($this->baseTarget);
+            return $this->baseTargets;
+        }
+    }
+
+    private function get_input_language($text) {
+        try {
+            return $this->deepLy->detectLanguage($text);
+        } catch(\Exception $exception) {
+            return false;
         }
     }
 
@@ -94,33 +93,25 @@ class DeeplTranslate
         $proposals = array();
         $results   = array();
         $query     = iconv("UTF-8-MAC", "UTF-8", $query);
+        $source    = $this->get_input_language($query);
         $targets   = $this->get_targets($query);
         $process   = $this->clean_query($query);
-        $maxItems  = count($targets) > 1 ? 3 : 4;
         try {
             try {
                 foreach($targets as $target) {
-                    $sentence = $this->strip_punctuation($process);
-                    foreach($this->deepLy->proposeTranslations($sentence, $target) as $index => $translation) {
-                        if ($index >= $maxItems) break;
+                    if ($target !== $source) {
+                        $translation = $this->deepLy->translate($process, $target);
                         $proposals[] = array (
-                            "lang"        => $this->deepLy->getTranslationBag()->getTargetLanguage(),
+                            "lang"        => $target,
                             "translation" => $translation
                         );
                     }
                 }
             } catch (\Exception $exception) {
-                foreach($targets as $target) {
-                    $sentences = $this->deepLy->splitText($query);
-                    $sentence  = implode($this->deepLy->translateSentences($sentences, $lang), ' ');
-                    foreach($sentence as $index => $translation) {
-                        if ($index >= $maxItems) break;
-                        $proposals[] = array (
-                            "lang"        => $this->deepLy->getTranslationBag()->getTargetLanguage(),
-                            "translation" => $translation
-                        );
-                    }
-                }
+                $proposals[] = array (
+                    "lang"        => "default",
+                    "translation" => "Sorry, no translation available!"
+                );
             }
             foreach($this->unique_multidim_array($proposals, 'translation') as $proposal) {
                 $temp = array(
@@ -128,19 +119,20 @@ class DeeplTranslate
                     'arg'          => $proposal['translation'],
                     'title'        => $proposal['translation'],
                     'subtitle'     => $process,
-                    'icon'         => $this->get_lang_icon($proposal['lang']),
+                    'icon'         => array('path' => $this->get_lang_icon($proposal['lang'])),
                     'valid'        => 'yes',
                     'autocomplete' => 'autocomplete',
                 );
                 array_push($results, $temp);
             }
             if (empty($results)) {
-                return $this->wf->toXML($this->empty_result($query));
+                return json_encode($this->empty_result($query));
             } else {
-                return $this->wf->toXML($results);
+                $output['items'] = $results;
+                return json_encode($output);
             }
         } catch (\Exception $exception) {
-            return $this->wf->toXML($this->empty_result($query));
+            return json_encode($this->empty_result($query));
         }
     }
 }

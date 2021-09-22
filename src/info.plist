@@ -5,7 +5,7 @@
 	<key>bundleid</key>
 	<string>de.m9dfukc.deepltranslate</string>
 	<key>category</key>
-	<string>Tools</string>
+	<string>Internet</string>
 	<key>connections</key>
 	<dict>
 		<key>61BF4F8C-DC18-4BB4-8DDD-A87C45C0F79E</key>
@@ -61,7 +61,7 @@
 	<key>createdby</key>
 	<string>Andreas Schmelas</string>
 	<key>description</key>
-	<string>Translation using deepl.com Api – Version 1.2.1</string>
+	<string>Translation using deepl.com Api – Version 2.0.0</string>
 	<key>disabled</key>
 	<false/>
 	<key>name</key>
@@ -80,11 +80,9 @@
 				<key>focusedappvariablename</key>
 				<string></string>
 				<key>hotkey</key>
-				<integer>2</integer>
+				<integer>0</integer>
 				<key>hotmod</key>
-				<integer>1835008</integer>
-				<key>hotstring</key>
-				<string>D</string>
+				<integer>0</integer>
 				<key>leftcursor</key>
 				<false/>
 				<key>modsmode</key>
@@ -106,6 +104,8 @@
 				<false/>
 				<key>clipboardtext</key>
 				<string></string>
+				<key>ignoredynamicplaceholders</key>
+				<false/>
 				<key>transient</key>
 				<false/>
 			</dict>
@@ -114,7 +114,7 @@
 			<key>uid</key>
 			<string>61BF4F8C-DC18-4BB4-8DDD-A87C45C0F79E</string>
 			<key>version</key>
-			<integer>2</integer>
+			<integer>3</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -123,6 +123,8 @@
 				<false/>
 				<key>alfredfiltersresultsmatchmode</key>
 				<integer>0</integer>
+				<key>argumenttreatemptyqueryasnil</key>
+				<false/>
 				<key>argumenttrimmode</key>
 				<integer>0</integer>
 				<key>argumenttype</key>
@@ -142,14 +144,23 @@
 				<key>runningsubtext</key>
 				<string>Retrieving suggestions from DeepL ...</string>
 				<key>script</key>
-				<string>require_once( __DIR__ . '/deepl.php' );
+				<string>/*
+ * IMPORTANT: Set your DeepL Api Key
+ * Acquire from here: https://www.deepl.com/en/pro-api?cta=header-pro/
+ * Free and Pro accounts are available
+ */
+$deeplKey = 'd0b0fe38-533e-a99e-39cb-16dcf8fd478a:fx';
 
-// DE, EN, FR, ES, IT, NL, PL are available
-// or use &gt; {LANG_CODE} to force the translation language
+/*
+ * Set your default target languages
+ * DE EN FR ES IT JA NL PL PT RU ZH are available
+ * or use &gt; {LANG_CODE} to force the translation language
+ */
+$translationTargets = 'DE EN';
 
-$default_language = 'DE';
-$deepl = new DeeplTranslate($default_language);
-
+/* The magic happens here! */
+require_once( __DIR__ . '/deepl.php' );
+$deepl = new DeeplTranslate($deeplKey, $translationTargets);
 echo $deepl-&gt;translate("{query}");</string>
 				<key>scriptargtype</key>
 				<integer>0</integer>
@@ -169,7 +180,7 @@ echo $deepl-&gt;translate("{query}");</string>
 			<key>uid</key>
 			<string>91D16594-908E-4665-A005-0B715D96E5C2</string>
 			<key>version</key>
-			<integer>2</integer>
+			<integer>3</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -195,15 +206,31 @@ echo $deepl-&gt;translate("{query}");</string>
 		<dict>
 			<key>config</key>
 			<dict>
+				<key>alignment</key>
+				<integer>0</integer>
+				<key>backgroundcolor</key>
+				<string></string>
+				<key>fadespeed</key>
+				<integer>0</integer>
+				<key>fillmode</key>
+				<integer>0</integer>
+				<key>font</key>
+				<string></string>
+				<key>ignoredynamicplaceholders</key>
+				<false/>
 				<key>largetypetext</key>
 				<string>{query}</string>
+				<key>textcolor</key>
+				<string></string>
+				<key>wrapat</key>
+				<integer>50</integer>
 			</dict>
 			<key>type</key>
 			<string>alfred.workflow.output.largetype</string>
 			<key>uid</key>
 			<string>A222FB0A-D703-4C45-9CB0-4EDEA3399BEF</string>
 			<key>version</key>
-			<integer>2</integer>
+			<integer>3</integer>
 		</dict>
 	</array>
 	<key>readme</key>
