@@ -1,5 +1,6 @@
 <?php
-require_once( './vendor/autoload.php' );
+require_once('./vendor/autoload.php');
+
 use Octfx\DeepLy\DeepLy;
 
 class DeeplTranslate
@@ -7,30 +8,33 @@ class DeeplTranslate
     private $deepLy;
     private $baseTargets;
 
-    private $langIcons = array (
+    private $langIcons = array(
         'default'       => 'icon.png',
         DeepLy::LANG_DE => 'icons/de.png',
         DeepLy::LANG_EN => 'icons/en.png',
         DeepLy::LANG_ES => 'icons/es.png',
         DeepLy::LANG_FR => 'icons/fr.png',
         DeepLy::LANG_IT => 'icons/it.png',
+        DeepLy::LANG_JA => 'icons/jp.png',
         DeepLy::LANG_NL => 'icons/nl.png',
         DeepLy::LANG_PL => 'icons/pl.png',
         DeepLy::LANG_PT => 'icons/pt.png',
         DeepLy::LANG_RU => 'icons/ru.png',
-        DeepLy::LANG_ZH => 'icons/zh.png', 
+        DeepLy::LANG_ZH => 'icons/zh.png',
     );
 
-    function __construct($key, $defaultTargets) {
-        $this->deepLy     = new DeepLy($key);
+    function __construct($key, $defaultTargets)
+    {
+        $this->deepLy      = new DeepLy($key);
         $this->baseTargets = explode(' ', $defaultTargets);
     }
 
-    private function unique_multidim_array($array, $key) {
+    private function unique_multidim_array($array, $key)
+    {
         $temp_array = array();
         $key_array  = array();
         $i          = 0;
-        foreach($array as $val) {
+        foreach ($array as $val) {
             if (!in_array($val[$key], $key_array)) {
                 $key_array[$i] = $val[$key];
                 $temp_array[$i] = $val;
@@ -40,14 +44,16 @@ class DeeplTranslate
         return $temp_array;
     }
 
-    private function get_lang_icon($lang) {
+    private function get_lang_icon($lang)
+    {
         return isset($this->langIcons[$lang])
             ? $this->langIcons[$lang]
             : $this->langIcons['default'];
     }
 
-    private function empty_result($query) {
-        $output['items'] = array(array (
+    private function empty_result($query)
+    {
+        $output['items'] = array(array(
             'uid'      => NULL,
             'arg'      => $query,
             'title'    => 'DeepL no translation found',
@@ -58,12 +64,13 @@ class DeeplTranslate
         return $output;
     }
 
-    private function get_targets($query) {
+    private function get_targets($query)
+    {
         if (strpos($query, '>')) {
             $query    = trim(substr($query, strpos($query, '>') + 1));
             $query    = strtoupper(str_replace(array(',', ' , ', ' ,', ', ', '  '), ' ', $query));
             $exploded = explode(' ', $query);
-            $targets  = array_filter($exploded, function($lang, $key) {
+            $targets  = array_filter($exploded, function ($lang, $key) {
                 return in_array($lang, DeepLy::TARGET_LANG_CODES);
             }, ARRAY_FILTER_USE_BOTH);
             return count($targets) > 0
@@ -74,25 +81,29 @@ class DeeplTranslate
         }
     }
 
-    private function get_input_language($text) {
+    private function get_input_language($text)
+    {
         try {
             return $this->deepLy->detectLanguage($text);
-        } catch(\Exception $exception) {
+        } catch (\Exception $exception) {
             return false;
         }
     }
 
-    private function clean_query($query) {
+    private function clean_query($query)
+    {
         return strpos($query, '>')
             ? trim(substr($query, 0, strpos($query, '>')))
             : $query;
     }
 
-    private function strip_punctuation($query) {
+    private function strip_punctuation($query)
+    {
         return str_replace(array('.', '!', '?'), ' ', $query);
     }
 
-    public function translate($query) {
+    public function translate($query)
+    {
         $proposals = array();
         $results   = array();
         $query     = iconv("UTF-8-MAC", "UTF-8", $query);
@@ -101,22 +112,22 @@ class DeeplTranslate
         $process   = $this->clean_query($query);
         try {
             try {
-                foreach($targets as $target) {
+                foreach ($targets as $target) {
                     if ($target !== $source) {
                         $translation = $this->deepLy->translate($process, $target);
-                        $proposals[] = array (
+                        $proposals[] = array(
                             "lang"        => $target,
                             "translation" => $translation
                         );
                     }
                 }
             } catch (\Exception $exception) {
-                $proposals[] = array (
+                $proposals[] = array(
                     "lang"        => "default",
                     "translation" => "Sorry, no translation available!"
                 );
             }
-            foreach($this->unique_multidim_array($proposals, 'translation') as $proposal) {
+            foreach ($this->unique_multidim_array($proposals, 'translation') as $proposal) {
                 $temp = array(
                     'uid'          => NULL,
                     'arg'          => $proposal['translation'],
