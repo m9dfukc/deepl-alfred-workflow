@@ -61,7 +61,7 @@
 	<key>createdby</key>
 	<string>Andreas Schmelas</string>
 	<key>description</key>
-	<string>Translation using deepl.com Api – Version 2.0.0</string>
+	<string>Translation using deepl.com Api</string>
 	<key>disabled</key>
 	<false/>
 	<key>name</key>
@@ -149,7 +149,7 @@
  * Acquire from here: https://www.deepl.com/en/pro-api?cta=header-pro/
  * Free and Pro accounts are available
  */
-$deeplKey = 'd0b0fe38-533e-a99e-39cb-16dcf8fd478a:fx';
+$deeplKey = '';
 
 /*
  * Set your default target languages
