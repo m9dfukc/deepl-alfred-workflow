@@ -11,11 +11,14 @@ class DeeplTranslate
         'default'       => 'icon.png',
         DeepLy::LANG_DE => 'icons/de.png',
         DeepLy::LANG_EN => 'icons/en.png',
-        DeepLy::LANG_FR => 'icons/fr.png',
         DeepLy::LANG_ES => 'icons/es.png',
+        DeepLy::LANG_FR => 'icons/fr.png',
         DeepLy::LANG_IT => 'icons/it.png',
         DeepLy::LANG_NL => 'icons/nl.png',
         DeepLy::LANG_PL => 'icons/pl.png',
+        DeepLy::LANG_PT => 'icons/pt.png',
+        DeepLy::LANG_RU => 'icons/ru.png',
+        DeepLy::LANG_ZH => 'icons/zh.png', 
     );
 
     function __construct($key, $defaultTargets) {
@@ -136,4 +139,3 @@ class DeeplTranslate
         }
     }
 }
-?>
